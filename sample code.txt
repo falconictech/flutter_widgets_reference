@@ -1,0 +1,671 @@
+Flutter Widgets Reference
+This document provides a one-line definition and a code snippet for each of the listed Flutter widgets, categorized by their function.
+1. Basic Widgets
+Text: Displays a string of text.
+Text('Hello, World!');
+
+
+Row: Arranges its children horizontally.
+Row(
+  children: <Widget>[
+    Icon(Icons.star),
+    Text('Rating'),
+  ],
+)
+
+
+Column: Arranges its children vertically.
+Column(
+  children: <Widget>[
+    Text('First line'),
+    Text('Second line'),
+  ],
+)
+
+
+Container: A convenient widget for common painting, positioning, and sizing.
+Container(
+  color: Colors.blue,
+  child: Text('A box'),
+)
+
+
+Stack: Positions widgets on top of each other.
+Stack(
+  children: <Widget>[
+    Container(color: Colors.red),
+    Positioned(
+      top: 10,
+      child: Text('On top'),
+    ),
+  ],
+)
+
+
+Scaffold: Implements the basic material design visual layout structure.
+Scaffold(
+  appBar: AppBar(title: Text('My App')),
+  body: Center(child: Text('Main content')),
+)
+
+
+AppBar: A material design app bar.
+AppBar(
+  title: Text('My App'),
+  actions: <Widget>[
+    IconButton(icon: Icon(Icons.search), onPressed: () {}),
+  ],
+)
+
+
+MaterialApp: A convenience widget that wraps a number of widgets that are commonly required for a material design application.
+MaterialApp(
+  home: Scaffold(body: Center(child: Text('Hello'))),
+)
+
+
+CupertinoApp: A convenience widget that wraps a number of widgets that are commonly required for an iOS-style application.
+CupertinoApp(
+  home: CupertinoPageScaffold(child: Text('Hello')),
+)
+
+
+Icon: A graphical icon from a font.
+Icon(Icons.favorite)
+
+
+Image: Displays an image.
+Image.network('[https://picsum.photos/250?image=9](https://picsum.photos/250?image=9)')
+
+
+Placeholder: A box that represents where other widgets should be.
+Placeholder(color: Colors.grey)
+
+
+2. Layout Widgets
+Center: Centers its child widget.
+Center(
+  child: Text('Centered Text'),
+)
+
+
+Padding: Adds empty space around a widget.
+Padding(
+  padding: EdgeInsets.all(8.0),
+  child: Text('Padded Text'),
+)
+
+
+Align: Aligns its child within itself.
+Align(
+  alignment: Alignment.bottomRight,
+  child: Text('Bottom Right'),
+)
+
+
+Expanded: Expands a child of a Row, Column, or Flex so that the child fills the available space.
+Row(
+  children: <Widget>[
+    Expanded(child: Container(color: Colors.red)),
+    Container(width: 50, color: Colors.blue),
+  ],
+)
+
+
+SizedBox: Creates a box with a specific size.
+SizedBox(
+  width: 100,
+  height: 50,
+)
+
+
+Wrap: Arranges its children in a series of runs.
+Wrap(
+  spacing: 8.0,
+  runSpacing: 4.0,
+  children: <Widget>[
+    Chip(label: Text('A')),
+    Chip(label: Text('B')),
+  ],
+)
+
+
+ListView: A scrollable list of widgets.
+ListView(
+  children: <Widget>[
+    ListTile(title: Text('One')),
+    ListTile(title: Text('Two')),
+  ],
+)
+
+
+GridView: A scrollable, 2D array of widgets.
+GridView.count(
+  crossAxisCount: 2,
+  children: <Widget>[
+    Container(color: Colors.red),
+    Container(color: Colors.blue),
+  ],
+)
+
+
+SingleChildScrollView: A box in which a single widget can be scrolled.
+SingleChildScrollView(
+  child: Column(
+    children: List.generate(20, (i) => Text('Item $i')),
+  ),
+)
+
+
+Flexible: Gives a child of a Row, Column, or Flex the ability to be flexible.
+Row(
+  children: <Widget>[
+    Flexible(child: Text('This is a very long sentence that will wrap.')),
+  ],
+)
+
+
+FractionallySizedBox: Sizes its child to a fraction of the total available space.
+FractionallySizedBox(
+  widthFactor: 0.5,
+  child: Container(color: Colors.red),
+)
+
+
+ConstrainedBox: Imposes additional constraints on its child.
+ConstrainedBox(
+  constraints: BoxConstraints(minWidth: 100),
+  child: Text('min 100px'),
+)
+
+
+AspectRatio: Attempts to size the child to a specific aspect ratio.
+AspectRatio(
+  aspectRatio: 16 / 9,
+  child: Container(color: Colors.blue),
+)
+
+
+3. Input & Interaction Widgets
+ElevatedButton: A material design button with a shadow.
+ElevatedButton(
+  onPressed: () {},
+  child: Text('Press Me'),
+)
+
+
+TextButton: A material design button with no shadow.
+TextButton(
+  onPressed: () {},
+  child: Text('Click Here'),
+)
+
+
+OutlinedButton: A material design button with a thin border.
+OutlinedButton(
+  onPressed: () {},
+  child: Text('Bordered'),
+)
+
+
+IconButton: A small button with an icon.
+IconButton(
+  icon: Icon(Icons.favorite),
+  onPressed: () {},
+)
+
+
+FloatingActionButton: A circular button that hovers over the UI.
+FloatingActionButton(
+  onPressed: () {},
+  child: Icon(Icons.add),
+)
+
+
+GestureDetector: A widget that detects gestures.
+GestureDetector(
+  onTap: () {},
+  child: Text('Tap me'),
+)
+
+
+InkWell: Provides a visual ripple effect on interaction.
+InkWell(
+  onTap: () {},
+  child: Text('Tap for ripple'),
+)
+
+
+Form: A container for grouping form fields.
+Form(
+  child: Column(
+    children: <Widget>[
+      TextField(),
+      ElevatedButton(onPressed: () {}, child: Text('Submit')),
+    ],
+  ),
+)
+
+
+TextField: A text input field.
+TextField(
+  decoration: InputDecoration(labelText: 'Enter text'),
+)
+
+
+DropdownButton: A button that shows a menu of items.
+String _value = 'One';
+DropdownButton<String>(
+  value: _value,
+  onChanged: (String? newValue) {},
+  items: ['One', 'Two'].map<DropdownMenuItem<String>>((String value) {
+    return DropdownMenuItem<String>(value: value, child: Text(value));
+  }).toList(),
+)
+
+
+Checkbox: A material design checkbox.
+bool _isChecked = false;
+Checkbox(
+  value: _isChecked,
+  onChanged: (bool? value) {},
+)
+
+
+Radio: A material design radio button.
+int _groupValue = 0;
+Radio(
+  value: 1,
+  groupValue: _groupValue,
+  onChanged: (int? value) {},
+)
+
+
+Switch: A material design switch.
+bool _isSwitched = true;
+Switch(
+  value: _isSwitched,
+  onChanged: (bool value) {},
+)
+
+
+Slider: A material design slider.
+double _sliderValue = 0.5;
+Slider(
+  value: _sliderValue,
+  onChanged: (double value) {},
+)
+
+
+4. Navigation & Routing Widgets
+Navigator: A widget that manages a stack of pages.
+Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
+
+
+MaterialPageRoute: A modal route that replaces the entire screen.
+MaterialPageRoute(builder: (context) => SecondScreen())
+
+
+PageView: A scrollable list that works page by page.
+PageView(
+  children: <Widget>[
+    Container(color: Colors.red),
+    Container(color: Colors.blue),
+  ],
+)
+
+
+TabBar: A horizontal row of tabs.
+DefaultTabController(
+  length: 2,
+  child: TabBar(
+    tabs: [
+      Tab(text: 'Tab 1'),
+      Tab(text: 'Tab 2'),
+    ],
+  ),
+)
+
+
+TabBarView: Displays a page for each tab.
+TabBarView(
+  children: [
+    Center(child: Text('Content for Tab 1')),
+    Center(child: Text('Content for Tab 2')),
+  ],
+)
+
+
+BottomNavigationBar: A material design bottom navigation bar.
+Scaffold(
+  bottomNavigationBar: BottomNavigationBar(
+    items: [
+      BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Business'),
+    ],
+  ),
+)
+
+
+Drawer: A panel that slides in from the side.
+Scaffold(
+  drawer: Drawer(
+    child: ListView(
+      children: <Widget>[
+        ListTile(title: Text('Menu Item')),
+      ],
+    ),
+  ),
+)
+
+
+5. Scrolling Widgets
+ListView: (See Layout Widgets section)
+GridView: (See Layout Widgets section)
+CustomScrollView: A ScrollView that creates custom scroll effects.
+CustomScrollView(
+  slivers: <Widget>[
+    SliverAppBar(title: Text('Custom Scroll')),
+    SliverList(delegate: SliverChildListDelegate([Text('Item 1')])),
+  ],
+)
+
+
+SliverList: A sliver that displays a linear list of widgets.
+CustomScrollView(
+  slivers: [
+    SliverList(delegate: SliverChildBuilderDelegate((context, index) => ListTile(title: Text('Item $index')))),
+  ],
+)
+
+
+SliverGrid: A sliver that displays a grid of widgets.
+CustomScrollView(
+  slivers: [
+    SliverGrid.count(crossAxisCount: 2, children: [Container(color: Colors.red)]),
+  ],
+)
+
+
+NestedScrollView: A scroll view that scrolls a primary ScrollView and a number of secondary ScrollViews.
+NestedScrollView(
+  headerSliverBuilder: (context, innerBoxIsScrolled) => [SliverAppBar(title: Text('Header'))],
+  body: ListView(children: [ListTile(title: Text('Nested list'))]),
+)
+
+
+Scrollbar: A material design scrollbar.
+Scrollbar(
+  child: ListView.builder(itemCount: 50, itemBuilder: (context, index) => Text('Item $index')),
+)
+
+
+6. Styling & Theming Widgets
+Theme: Defines the visual properties of the widgets in a tree.
+Theme(
+  data: ThemeData(primaryColor: Colors.purple),
+  child: ElevatedButton(onPressed: () {}, child: Text('Purple Button')),
+)
+
+
+MediaQuery: Provides information about the media, such as screen size.
+Text('Screen width: ${MediaQuery.of(context).size.width}')
+
+
+ColorFiltered: Applies a color filter to its child.
+ColorFiltered(
+  colorFilter: ColorFilter.mode(Colors.red, BlendMode.color),
+  child: Image.network('[https://picsum.photos/250?image=9](https://picsum.photos/250?image=9)'),
+)
+
+
+Opacity: Makes its child partially transparent.
+Opacity(
+  opacity: 0.5,
+  child: Container(color: Colors.blue),
+)
+
+
+ClipRRect: Clips its child to a rounded rectangle.
+ClipRRect(
+  borderRadius: BorderRadius.circular(10),
+  child: Image.network('[https://picsum.photos/250?image=9](https://picsum.photos/250?image=9)'),
+)
+
+
+ClipOval: Clips its child to an oval or circle.
+ClipOval(
+  child: Image.network('[https://picsum.photos/250?image=9](https://picsum.photos/250?image=9)'),
+)
+
+
+DecoratedBox: Paints a decoration before or after its child.
+DecoratedBox(
+  decoration: BoxDecoration(color: Colors.red, border: Border.all()),
+  child: Text('Decorated'),
+)
+
+
+7. Animation & Motion Widgets
+AnimatedContainer: A container that animates changes to its properties.
+AnimatedContainer(
+  duration: Duration(seconds: 1),
+  width: _isBig ? 200 : 100,
+  height: _isBig ? 200 : 100,
+  color: Colors.blue,
+)
+
+
+AnimatedOpacity: Animates the opacity of its child.
+AnimatedOpacity(
+  opacity: _isVisible ? 1.0 : 0.0,
+  duration: Duration(milliseconds: 500),
+  child: Text('Fade In/Out'),
+)
+
+
+AnimatedCrossFade: Animates between two widgets.
+AnimatedCrossFade(
+  duration: Duration(seconds: 1),
+  firstChild: Icon(Icons.star),
+  secondChild: Icon(Icons.ac_unit),
+  crossFadeState: _isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+)
+
+
+AnimatedSwitcher: A widget that animates a new child into view.
+AnimatedSwitcher(
+  duration: Duration(milliseconds: 500),
+  child: Text('Current number: $_counter'),
+)
+
+
+Hero: Animates a widget flying between two screens.
+// Page 1
+Hero(tag: 'image_tag', child: Image.network('...'))
+
+// Page 2
+Hero(tag: 'image_tag', child: Image.network('...'))
+
+
+FadeTransition: Animates the opacity of a widget.
+FadeTransition(
+  opacity: CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+  child: Text('Fading Text'),
+)
+
+
+ScaleTransition: Animates the size of a widget.
+ScaleTransition(
+  scale: CurvedAnimation(parent: _controller, curve: Curves.bounceIn),
+  child: Icon(Icons.favorite),
+)
+
+
+RotationTransition: Animates the rotation of a widget.
+RotationTransition(
+  turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+  child: Icon(Icons.refresh),
+)
+
+
+SlideTransition: Animates the position of a widget.
+SlideTransition(
+  position: Tween<Offset>(begin: Offset.zero, end: Offset(1.0, 0.0)).animate(_controller),
+  child: Text('Sliding Text'),
+)
+
+
+8. Cupertino (iOS-style) Widgets
+CupertinoButton: An iOS-style button.
+CupertinoButton(
+  onPressed: () {},
+  child: Text('iOS Button'),
+)
+
+
+CupertinoAlertDialog: An iOS-style alert dialog.
+showCupertinoDialog(
+  context: context,
+  builder: (context) => CupertinoAlertDialog(title: Text('Alert')),
+)
+
+
+CupertinoNavigationBar: An iOS-style navigation bar.
+CupertinoNavigationBar(
+  middle: Text('Title'),
+  trailing: Icon(CupertinoIcons.search),
+)
+
+
+CupertinoTabBar: An iOS-style tab bar.
+CupertinoTabBar(
+  items: [
+    BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: 'Home'),
+  ],
+)
+
+
+CupertinoActivityIndicator: An iOS-style loading spinner.
+CupertinoActivityIndicator()
+
+
+CupertinoPicker: An iOS-style spinning wheel picker.
+CupertinoPicker(
+  itemExtent: 32,
+  onSelectedItemChanged: (index) {},
+  children: [Text('Item 1'), Text('Item 2')],
+)
+
+
+9. State Management Widgets
+StatefulWidget: A widget that has mutable state.
+class MyStatefulWidget extends StatefulWidget {
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+
+StatelessWidget: A widget that has no mutable state.
+class MyStatelessWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text('Static content');
+  }
+}
+
+
+InheritedWidget: A widget that efficiently propagates information down the tree.
+class MyInheritedWidget extends InheritedWidget {
+  final String data;
+  MyInheritedWidget({required this.data, required Widget child}) : super(child: child);
+}
+
+
+Provider (via package): Provides a simple way to access a value from the widget tree.
+ChangeNotifierProvider(
+  create: (context) => MyData(),
+  child: MyChildWidget(),
+)
+
+
+ValueListenableBuilder: Rebuilds when its ValueListenable changes.
+ValueListenableBuilder<int>(
+  valueListenable: _counterNotifier,
+  builder: (context, value, child) => Text('Count: $value'),
+)
+
+
+StreamBuilder: Rebuilds when it receives new data from a Stream.
+StreamBuilder<int>(
+  stream: _myStream,
+  builder: (context, snapshot) => Text('Data: ${snapshot.data}'),
+)
+
+
+FutureBuilder: Rebuilds when it receives data from a Future.
+FutureBuilder<String>(
+  future: Future.delayed(Duration(seconds: 2), () => 'Done'),
+  builder: (context, snapshot) => Text(snapshot.data ?? 'Loading...'),
+)
+
+
+10. Utility & Misc Widgets
+Divider: A thin horizontal line.
+Divider(color: Colors.black)
+
+
+Card: A material design card.
+Card(
+  child: ListTile(title: Text('Card Title')),
+)
+
+
+Tooltip: Displays a message when a widget is long-pressed.
+Tooltip(
+  message: 'This is a tooltip',
+  child: Icon(Icons.info),
+)
+
+
+SnackBar: A message bar that appears temporarily at the bottom of the screen.
+ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Hello!')))
+
+
+AlertDialog: A modal dialog box.
+showDialog(
+  context: context,
+  builder: (context) => AlertDialog(title: Text('Alert')),
+)
+
+
+ExpansionTile: A tile that can be expanded to show more content.
+ExpansionTile(
+  title: Text('Details'),
+  children: [
+    ListTile(title: Text('More info')),
+  ],
+)
+
+
+DataTable: Displays data in rows and columns.
+DataTable(
+  columns: [DataColumn(label: Text('Name'))],
+  rows: [DataRow(cells: [DataCell(Text('John'))])],
+)
+
+
+Stepper: Displays a series of steps.
+Stepper(
+  steps: [
+    Step(title: Text('Step 1'), content: Text('Content 1')),
+    Step(title: Text('Step 2'), content: Text('Content 2')),
+  ],
+)
+
+
+ProgressIndicator (Linear, Circular): Visual indicators of progress.
+LinearProgressIndicator()
+CircularProgressIndicator()
+
+
