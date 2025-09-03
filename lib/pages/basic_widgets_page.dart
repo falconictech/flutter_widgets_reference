@@ -343,6 +343,159 @@ class BasicWidgetsPage extends StatelessWidget {
             ],
           ),
           _buildWidgetSection(
+            'Scaffold Widget',
+            'The basic structure for a screen with app bar, body, and floating action button',
+            [
+              Container(
+                height: 200,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Scaffold(
+                    appBar: AppBar(
+                      title: const Text('Sample App'),
+                      backgroundColor: Colors.blue,
+                      foregroundColor: Colors.white,
+                      automaticallyImplyLeading: false,
+                      actions: [
+                        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+                        IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
+                      ],
+                    ),
+                    body: const Center(
+                      child: Text('Scaffold Body Content'),
+                    ),
+                    floatingActionButton: FloatingActionButton(
+                      mini: true,
+                      onPressed: () {},
+                      child: const Icon(Icons.add),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                height: 150,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Scaffold(
+                    appBar: AppBar(
+                      title: const Text('With Bottom Nav'),
+                      backgroundColor: Colors.green,
+                      foregroundColor: Colors.white,
+                      automaticallyImplyLeading: false,
+                      leading: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.menu),
+                      ),
+                    ),
+                    body: const Center(
+                      child: Text('Scaffold with Bottom Navigation'),
+                    ),
+                    bottomNavigationBar: BottomNavigationBar(
+                      items: const [
+                        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+                        BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          _buildWidgetSection(
+            'AppBar Widget',
+            'A material design app bar for the top of the screen',
+            [
+              Container(
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: AppBar(
+                    title: const Text('Basic AppBar'),
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    automaticallyImplyLeading: false,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: AppBar(
+                    title: const Text('AppBar with Actions'),
+                    backgroundColor: Colors.purple,
+                    foregroundColor: Colors.white,
+                    automaticallyImplyLeading: false,
+                    leading: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.menu),
+                    ),
+                    actions: [
+                      IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+                      IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
+                      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: AppBar(
+                    title: const Text('Elevated AppBar'),
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.white,
+                    automaticallyImplyLeading: false,
+                    elevation: 8,
+                    centerTitle: true,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: AppBar(
+                    title: const Text('Large AppBar'),
+                    backgroundColor: Colors.teal,
+                    foregroundColor: Colors.white,
+                    automaticallyImplyLeading: false,
+                    toolbarHeight: 80,
+                    centerTitle: true,
+                    actions: [
+                      IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          _buildWidgetSection(
             'MaterialApp Widget',
             'Root widget for Material Design apps',
             [
