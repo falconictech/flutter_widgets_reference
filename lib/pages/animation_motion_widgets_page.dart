@@ -102,6 +102,27 @@ class _AnimationMotionWidgetsPageState extends State<AnimationMotionWidgetsPage>
                     ),
                   ),
                   const SizedBox(height: 16),
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 800),
+                    curve: Curves.bounceOut,
+                    width: _isExpanded ? 150 : 250,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: _isExpanded 
+                            ? [Colors.purple, Colors.pink]
+                            : [Colors.green, Colors.teal],
+                      ),
+                      borderRadius: BorderRadius.circular(_isExpanded ? 25 : 5),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Animated Gradient',
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
                       setState(() {

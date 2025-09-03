@@ -284,6 +284,61 @@ class _StylingThemingWidgetsPageState extends State<StylingThemingWidgetsPage> {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 16),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: Colors.blue.withOpacity(0.1),
+                      border: const Border(
+                        left: BorderSide(color: Colors.blue, width: 4),
+                        bottom: BorderSide(color: Colors.blue, width: 2),
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const SizedBox(
+                      width: 200,
+                      height: 80,
+                      child: Center(
+                        child: Text(
+                          'Custom Border Sides',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: const RadialGradient(
+                        colors: [Colors.yellow, Colors.orange, Colors.red],
+                      ),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.orange.withOpacity(0.5),
+                          blurRadius: 15,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: const SizedBox(
+                      width: 120,
+                      height: 120,
+                      child: Center(
+                        child: Text(
+                          'Radial\nGradient',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],

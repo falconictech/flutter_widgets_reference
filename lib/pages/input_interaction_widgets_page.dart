@@ -36,13 +36,40 @@ class _InputInteractionWidgetsPageState extends State<InputInteractionWidgetsPag
                     const SnackBar(content: Text('ElevatedButton pressed!')),
                   );
                 },
-                child: const Text('ElevatedButton'),
+                child: const Text('Basic Button'),
               ),
               const SizedBox(height: 8),
               ElevatedButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.star),
-                label: const Text('With Icon'),
+                label: const Text('Button with Icon'),
+              ),
+              const SizedBox(height: 8),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: () {},
+                child: const Text('Custom Styled Button'),
+              ),
+              const SizedBox(height: 8),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  minimumSize: const Size(200, 50),
+                ),
+                onPressed: () {},
+                child: const Text('Large Button'),
+              ),
+              const SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: null, // Disabled button
+                child: const Text('Disabled Button'),
               ),
             ],
           ),
@@ -201,15 +228,55 @@ class _InputInteractionWidgetsPageState extends State<InputInteractionWidgetsPag
             [
               TextField(
                 decoration: const InputDecoration(
-                  labelText: 'Enter text',
+                  labelText: 'Basic TextField',
                   border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.text_fields),
                 ),
                 onChanged: (value) {
                   setState(() {
                     _textFieldValue = value;
                   });
                 },
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'TextField with Icon',
+                  prefixIcon: const Icon(Icons.search),
+                  suffixIcon: const Icon(Icons.clear),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey.withOpacity(0.1),
+                ),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                decoration: const InputDecoration(
+                  labelText: 'Password Field',
+                  prefixIcon: Icon(Icons.lock),
+                  border: OutlineInputBorder(),
+                ),
+                obscureText: true,
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                maxLines: 3,
+                decoration: const InputDecoration(
+                  labelText: 'Multi-line TextField',
+                  border: OutlineInputBorder(),
+                  alignLabelWithHint: true,
+                ),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'TextField without border',
+                  prefixIcon: const Icon(Icons.email),
+                  border: InputBorder.none,
+                  filled: true,
+                  fillColor: Colors.orange.withOpacity(0.1),
+                ),
               ),
               const SizedBox(height: 8),
               Text('Current value: $_textFieldValue'),

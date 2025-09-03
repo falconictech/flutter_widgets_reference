@@ -39,7 +39,31 @@ class LayoutWidgetsPage extends StatelessWidget {
                 color: Colors.blue.withOpacity(0.1),
                 child: const Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: Text('Text with padding'),
+                  child: Text('Padding on all sides'),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                color: Colors.green.withOpacity(0.1),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  child: Text('Symmetric padding'),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                color: Colors.orange.withOpacity(0.1),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 40, top: 20),
+                  child: Text('Custom padding'),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                color: Colors.purple.withOpacity(0.1),
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(10, 20, 30, 5),
+                  child: Text('LTRB padding (10, 20, 30, 5)'),
                 ),
               ),
             ],
@@ -55,6 +79,36 @@ class LayoutWidgetsPage extends StatelessWidget {
                 child: const Align(
                   alignment: Alignment.topRight,
                   child: Text('Top Right'),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                height: 100,
+                width: double.infinity,
+                color: Colors.blue.withOpacity(0.1),
+                child: const Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text('Bottom Left'),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                height: 100,
+                width: double.infinity,
+                color: Colors.green.withOpacity(0.1),
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text('Center'),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                height: 100,
+                width: double.infinity,
+                color: Colors.orange.withOpacity(0.1),
+                child: const Align(
+                  alignment: Alignment(0.5, -0.5), // Custom alignment
+                  child: Text('Custom (0.5, -0.5)'),
                 ),
               ),
             ],

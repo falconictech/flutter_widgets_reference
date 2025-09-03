@@ -21,7 +21,7 @@ class BasicWidgetsPage extends StatelessWidget {
             [
               const Text('Simple Text'),
               const Text(
-                'Styled Text',
+                'Large Bold Blue Text',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -29,10 +29,47 @@ class BasicWidgetsPage extends StatelessWidget {
                 ),
               ),
               const Text(
-                'Text with decoration',
+                'Underlined Italic Text',
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   fontStyle: FontStyle.italic,
+                ),
+              ),
+              const Text(
+                'Strikethrough Text',
+                style: TextStyle(
+                  decoration: TextDecoration.lineThrough,
+                  decorationColor: Colors.red,
+                  decorationThickness: 2,
+                ),
+              ),
+              const Text(
+                'Text with Shadow',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      offset: Offset(2, 2),
+                      blurRadius: 3,
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+              ),
+              const Text(
+                'Colored Background Text',
+                style: TextStyle(
+                  backgroundColor: Colors.yellow,
+                  color: Colors.black,
+                  fontSize: 16,
+                ),
+              ),
+              const Text(
+                'Letter Spaced Text',
+                style: TextStyle(
+                  letterSpacing: 3,
+                  fontSize: 16,
                 ),
               ),
             ],
@@ -113,7 +150,62 @@ class BasicWidgetsPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 margin: const EdgeInsets.all(8),
                 child: const Center(
-                  child: Text('Container with decoration'),
+                  child: Text('Basic Container'),
+                ),
+              ),
+              Container(
+                width: 180,
+                height: 80,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.purple, Colors.pink],
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 5,
+                      offset: Offset(2, 2),
+                    ),
+                  ],
+                ),
+                child: const Center(
+                  child: Text(
+                    'Gradient Container',
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              Container(
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.green.shade800, width: 3),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Circle',
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              Container(
+                width: 200,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Colors.orange,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Custom Border Radius',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ],
@@ -170,6 +262,47 @@ class BasicWidgetsPage extends StatelessWidget {
                   Icon(Icons.star, size: 30, color: Colors.orange),
                   SizedBox(width: 10),
                   Icon(Icons.settings, size: 30, color: Colors.grey),
+                ],
+              ),
+              const SizedBox(height: 16),
+              const Row(
+                children: [
+                  Icon(Icons.thumb_up, size: 40, color: Colors.green),
+                  SizedBox(width: 10),
+                  Icon(Icons.thumb_down, size: 40, color: Colors.red),
+                  SizedBox(width: 10),
+                  Icon(Icons.share, size: 40, color: Colors.blue),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.blue.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Icon(Icons.download, size: 24, color: Colors.blue),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.green.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Icon(Icons.check, size: 24, color: Colors.green),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.red.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Icon(Icons.close, size: 24, color: Colors.red),
+                  ),
                 ],
               ),
             ],

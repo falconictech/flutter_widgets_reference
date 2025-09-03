@@ -60,18 +60,18 @@ class _UtilityMiscWidgetsPageState extends State<UtilityMiscWidgetsPage> {
             'A material design card with rounded corners and shadow',
             [
               const Card(
-                elevation: 4,
+                elevation: 2,
                 child: Padding(
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Card Title',
+                        'Basic Card',
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 8),
-                      Text('This is a card with some content inside it.'),
+                      Text('This is a basic card with default elevation.'),
                     ],
                   ),
                 ),
@@ -81,7 +81,52 @@ class _UtilityMiscWidgetsPageState extends State<UtilityMiscWidgetsPage> {
                 color: Colors.brown.withOpacity(0.1),
                 child: const Padding(
                   padding: EdgeInsets.all(16),
-                  child: Text('Card with custom color and elevation'),
+                  child: Text('Card with custom color and high elevation (8)'),
+                ),
+              ),
+              Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  side: const BorderSide(color: Colors.brown, width: 2),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Text('Card with custom shape and border'),
+                ),
+              ),
+              Card(
+                elevation: 4,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  children: [
+                    Container(
+                      height: 100,
+                      width: double.infinity,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.purple, Colors.pink],
+                        ),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Card with Image Header',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text('Card content with clipped behavior'),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -264,13 +309,21 @@ class _UtilityMiscWidgetsPageState extends State<UtilityMiscWidgetsPage> {
             [
               Column(
                 children: [
-                  const Text('Linear Progress Indicator'),
+                  const Text('Linear Progress Indicators'),
+                  const SizedBox(height: 8),
+                  const LinearProgressIndicator(value: 0.3),
                   const SizedBox(height: 8),
                   const LinearProgressIndicator(value: 0.7),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
+                  LinearProgressIndicator(
+                    value: 0.5,
+                    backgroundColor: Colors.grey[300],
+                    valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                  ),
+                  const SizedBox(height: 8),
                   const LinearProgressIndicator(), // Indeterminate
                   const SizedBox(height: 24),
-                  const Text('Circular Progress Indicator'),
+                  const Text('Circular Progress Indicators'),
                   const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -278,8 +331,50 @@ class _UtilityMiscWidgetsPageState extends State<UtilityMiscWidgetsPage> {
                       const CircularProgressIndicator(value: 0.3),
                       const CircularProgressIndicator(value: 0.7),
                       CircularProgressIndicator(
+                        value: 0.5,
+                        backgroundColor: Colors.grey[300],
+                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                        strokeWidth: 6,
+                      ),
+                      CircularProgressIndicator(
                         backgroundColor: Colors.grey[300],
                         valueColor: const AlwaysStoppedAnimation<Color>(Colors.brown),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: 60,
+                        height: 60,
+                        child: CircularProgressIndicator(
+                          value: 0.75,
+                          strokeWidth: 8,
+                          backgroundColor: Colors.grey[300],
+                          valueColor: const AlwaysStoppedAnimation<Color>(Colors.orange),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 40,
+                        height: 40,
+                        child: CircularProgressIndicator(
+                          value: 0.6,
+                          strokeWidth: 4,
+                          backgroundColor: Colors.grey[300],
+                          valueColor: const AlwaysStoppedAnimation<Color>(Colors.purple),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 80,
+                        height: 80,
+                        child: CircularProgressIndicator(
+                          value: 0.9,
+                          strokeWidth: 10,
+                          backgroundColor: Colors.grey[300],
+                          valueColor: const AlwaysStoppedAnimation<Color>(Colors.red),
+                        ),
                       ),
                     ],
                   ),

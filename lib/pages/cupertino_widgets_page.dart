@@ -32,10 +32,16 @@ class _CupertinoWidgetsPageState extends State<CupertinoWidgetsPage> {
                     color: CupertinoColors.activeBlue,
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Cupertino button pressed!')),
+                        const SnackBar(content: Text('Blue button pressed!')),
                       );
                     },
-                    child: const Text('Filled Button'),
+                    child: const Text('Blue Filled Button'),
+                  ),
+                  const SizedBox(height: 8),
+                  CupertinoButton(
+                    color: CupertinoColors.destructiveRed,
+                    onPressed: () {},
+                    child: const Text('Red Filled Button'),
                   ),
                   const SizedBox(height: 8),
                   CupertinoButton(
@@ -45,7 +51,19 @@ class _CupertinoWidgetsPageState extends State<CupertinoWidgetsPage> {
                   const SizedBox(height: 8),
                   CupertinoButton.filled(
                     onPressed: () {},
-                    child: const Text('Filled Button'),
+                    child: const Text('Default Filled Button'),
+                  ),
+                  const SizedBox(height: 8),
+                  CupertinoButton(
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    color: CupertinoColors.activeGreen,
+                    onPressed: () {},
+                    child: const Text('Custom Padding'),
+                  ),
+                  const SizedBox(height: 8),
+                  CupertinoButton(
+                    onPressed: null, // Disabled
+                    child: const Text('Disabled Button'),
                   ),
                 ],
               ),
@@ -214,22 +232,66 @@ class _CupertinoWidgetsPageState extends State<CupertinoWidgetsPage> {
               Column(
                 children: [
                   CupertinoTextField(
-                    placeholder: 'Enter text',
-                    prefix: const Icon(CupertinoIcons.person),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: CupertinoColors.lightBackgroundGray),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+                    placeholder: 'Basic text field',
+                    padding: const EdgeInsets.all(12),
                   ),
                   const SizedBox(height: 16),
                   CupertinoTextField(
-                    placeholder: 'Password',
-                    obscureText: true,
-                    prefix: const Icon(CupertinoIcons.lock),
+                    placeholder: 'With prefix icon',
+                    prefix: const Padding(
+                      padding: EdgeInsets.only(left: 8),
+                      child: Icon(CupertinoIcons.person, color: CupertinoColors.systemGrey),
+                    ),
                     decoration: BoxDecoration(
                       border: Border.all(color: CupertinoColors.lightBackgroundGray),
                       borderRadius: BorderRadius.circular(8),
                     ),
+                    padding: const EdgeInsets.all(12),
+                  ),
+                  const SizedBox(height: 16),
+                  CupertinoTextField(
+                    placeholder: 'Password field',
+                    obscureText: true,
+                    prefix: const Padding(
+                      padding: EdgeInsets.only(left: 8),
+                      child: Icon(CupertinoIcons.lock, color: CupertinoColors.systemGrey),
+                    ),
+                    suffix: const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(CupertinoIcons.eye, color: CupertinoColors.systemGrey),
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: CupertinoColors.lightBackgroundGray),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    padding: const EdgeInsets.all(12),
+                  ),
+                  const SizedBox(height: 16),
+                  CupertinoTextField(
+                    placeholder: 'Search field',
+                    prefix: const Padding(
+                      padding: EdgeInsets.only(left: 8),
+                      child: Icon(CupertinoIcons.search, color: CupertinoColors.systemGrey),
+                    ),
+                    suffix: const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(CupertinoIcons.clear, color: CupertinoColors.systemGrey),
+                    ),
+                    decoration: BoxDecoration(
+                      color: CupertinoColors.systemGrey6,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: const EdgeInsets.all(12),
+                  ),
+                  const SizedBox(height: 16),
+                  CupertinoTextField(
+                    placeholder: 'Multi-line text field',
+                    maxLines: 3,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: CupertinoColors.lightBackgroundGray),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    padding: const EdgeInsets.all(12),
                   ),
                 ],
               ),
